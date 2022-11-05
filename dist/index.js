@@ -1,24 +1,22 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.addNumbers = void 0;
-/**
- * Create a promise that resolves after some time
- * @param n number of milliseconds before promise resolves
- */
-function timeout(n) {
-    return new Promise((res) => setTimeout(res, n));
+function printCar(car) {
+    let str = `${car.make} ${car.model} (${car.year})`;
+    car.chargeVoltage;
+    // if (typeof car.chargeVoltage !== "undefined") {
+    str += `// ${car.chargeVoltage.toFixed(2)}v`;
+    // }
+    console.log(str);
 }
-/**
- * Add three numbers
- * @param a first number
- * @param b second
- */
-async function addNumbers(a, b) {
-    await timeout(500);
-    return a + b;
-}
-exports.addNumbers = addNumbers;
-//== Run the program ==//
-(async () => {
-    console.log(await addNumbers(3, 4));
-})();
+// Works
+printCar({
+    make: "Honda",
+    model: "Accord",
+    year: 2017,
+});
+// Also works
+printCar({
+    make: "Tesla",
+    model: "Model 3",
+    year: 2020,
+    chargeVoltage: 220,
+});
